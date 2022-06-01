@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style>
+		@keyframes margi{
+			to{
+				margin-left: 10px;
+			}
+			from{
+				margin-left: 100px;
+			}
+		}
+		@keyframes load{
+			0%{font-size: 100px;}
+			10%{font-size: 150px;}
+			20%{font-size: 200px;}
+			30%{font-size: 250px;}
+			40%{font-size: 300px;}
+			50%{font-size: 350px;}
+			60%{font-size: 400px;}
+			70%{font-size: 450px;}
+			80%{font-size: 500px;}
+			90%{font-size: 550px;}
+			100%{font-size: 600px;}
+		}
+		body{
+			margin: 0;
+		}
+		div#aa{
+			width: 200px;
+			height: 200px;
+			border: 1px solid black;
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			grid-template-rows: 1fr 1fr 1fr;
+		}
+		div{
+			font-size: 40px;
+			margin: 0;
+			border: 1px solid black;
+		}
+		#pos1{
+			text-align: center;
+			grid-row: 1/2;
+			grid-column: 1/2;
+		}
+		#pos2{
+			text-align: center;
+			grid-row: 1/2;
+			grid-column: 2/3;
+		}
+		#pos3{
+			text-align: center;
+			grid-row: 1/2;
+			grid-column: 3/4;
+		}
+		#pos4{
+			text-align: center;
+			grid-row: 2/3;
+			grid-column: 1/2;
+		}
+		#pos5{
+			text-align: center;
+			grid-row: 2/3;
+			grid-column: 2/3;
+		}
+		#pos6{
+			text-align: center;
+			grid-row: 2/3;
+			grid-column: 3/4;
+		}
+		#pos7{
+			text-align: center;
+			grid-row: 3/4;
+			grid-column: 1/2;
+		}
+		#pos8{
+			text-align: center;
+			grid-row: 3/4;
+			grid-column: 2/3;
+		}
+		#pos9{
+			text-align: center;
+			grid-row: 3/4;
+			grid-column: 3/4;
+		}
+	</style>
+</head>
+<body>
+	<div id="aa">
+		<div id="pos1"></div>
+		<div id="pos2"></div>
+		<div id="pos3"></div>
+		<div id="pos4"></div>
+		<div id="pos5"></div>
+		<div id="pos6"></div>
+		<div id="pos7"></div>
+		<div id="pos8"></div>
+		<div id="pos9"></div>
+	</div>
+	<div id="a"></div>
+	<div id="b"></div>
+	<script>
+		var b1 = document.getElementById('pos1');
+		var b2 = document.getElementById('pos2');
+		var b3 = document.getElementById('pos3');
+		var b4 = document.getElementById('pos4');
+		var b5 = document.getElementById('pos5');
+		var b6 = document.getElementById('pos6');
+		var b7 = document.getElementById('pos7');
+		var b8 = document.getElementById('pos8');
+		var b9 = document.getElementById('pos9');
+
+		var bf1 = 0;
+		var bf2 = 0;
+		var bf3 = 0;
+		var bf4 = 0;
+		var bf5 = 0;
+		var bf6 = 0;
+		var bf7 = 0;
+		var bf8 = 0;
+		var bf9 = 0;
+
+		var bx1 = false;
+		var bx2 = false;
+		var bx3 = false;
+		var bx4 = false;
+		var bx5 = false;
+		var bx6 = false;
+		var bx7 = false;
+		var bx8 = false;
+		var bx9 = false;
+
+		var bo1 = false;
+		var bo2 = false;
+		var bo3 = false;
+		var bo4 = false;
+		var bo5 = false;
+		var bo6 = false;
+		var bo7 = false;
+		var bo8 = false;
+		var bo9 = false;
+
+		var bs1;
+		var bs2;
+		var bs3;
+		var bs4;
+		var bs5;
+		var bs6;
+		var bs7;
+		var bs8;
+		var bs9;
+
+		var xpos;
+		var ypos;
+
+		var count = 0;
+
+		document.getElementById('aa').addEventListener('click',go);
+
+		function go(e){
+		document.getElementById('b').textContent='Client X = '+e.clientX+e.clientY;
+
+		count += 1;
+		if(e.clientX>0 && e.clientX<=66 && e.clientY>0 && e.clientY<=66 && bf1 == 0){
+			if(count%2 == 1){
+				b1.textContent='x';
+				bx1 = true;
+			}
+			else{
+				b1.textContent='o';
+				bo1 = true;
+			}
+			bf1 = 1;
+		}
+		if(e.clientX>66 && e.clientX<=132 && e.clientY>0 && e.clientY<=66 && bf2 == 0){
+			if(count%2 == 1){
+				b2.textContent='x';
+				bx2 = true;
+			}
+			else{
+				b2.textContent='o';
+				bo2 = true;
+			}
+			bf2 = 1;
+		}
+		if(e.clientX>132 && e.clientX<=200 && e.clientY>0 && e.clientY<=66 && bf3 == 0){
+			if(count%2 == 1){
+				b3.textContent='x';
+				bx3 = true;
+			}
+			else{
+				b3.textContent='o';
+				bo3 = true;
+			}
+			bf3 = 1;
+		}
+
+		if(e.clientX>0 && e.clientX<=66 && e.clientY>66 && e.clientY<=132 && bf4 == 0){
+			if(count%2 == 1){
+				b4.textContent='x';
+				bx4 = true;
+			}
+			else{
+				b4.textContent='o';
+				bo4 = true;
+			}
+			bf4 = 1;
+		}
+		if(e.clientX>66 && e.clientX<=132 && e.clientY>66 && e.clientY<=132 && bf5 == 0){
+			if(count%2 == 1){
+				b5.textContent='x';
+				bx5 = true;
+			}
+			else{
+				b5.textContent='o';
+				bo5 = true;
+			}
+			bf5 = 1;
+		}
+		if(e.clientX>132 && e.clientX<=200 && e.clientY>66 && e.clientY<=132 && bf6 == 0){
+			if(count%2 == 1){
+				b6.textContent='x';
+				bx6 = true;
+			}
+			else{
+				b6.textContent='o';
+				bo6 = true;
+			}
+			bf6 = 1;
+		}
+
+		if(e.clientX>0 && e.clientX<=66 && e.clientY>132 && e.clientY<=200 && bf7 == 0){
+			if(count%2 == 1){
+				b7.textContent='x';
+				bx7 = true;
+			}
+			else{
+				b7.textContent='o';
+				bo7 = true;
+			}
+			bf7 = 1;
+		}
+		if(e.clientX>66 && e.clientX<=132 && e.clientY>132 && e.clientY<=200 && bf8 == 0){
+			if(count%2 == 1){
+				b8.textContent='x';
+				bx8 = true;
+			}
+			else{
+				b8.textContent='o';
+				bo8 = true;
+			}
+			bf8 = 1;
+		}
+		if(e.clientX>132 && e.clientX<=200 && e.clientY>132 && e.clientY<=200 && bf9 == 0){
+			if(count%2 == 1){
+				b9.textContent='x';
+				bx9 = true;
+			}
+			else{
+				b9.textContent='o';
+				bo9 = true;
+			}
+			bf9 = 1;
+		}
+		if(bx1&&bx2&&bx3||bx4&&bx5&&bx6||bx7&&bx8&&bx9||bx1&&bx4&&bx7||bx2&&bx5&&bx8||bx3&&bx6&&bx9||bx1&&bx5&&bx9||bx3&&bx5&&bx7){
+			document.getElementById('a').textContent='X WON !';
+			bf1 = 1;
+			bf2 = 1;
+			bf3 = 1;
+			bf4 = 1;
+			bf5 = 1;
+			bf6 = 1;
+			bf7 = 1;
+			bf8 = 1;
+			bf9 = 1;
+		}
+		if(bo1&&bo2&&bo3||bo4&&bo5&&bo6||bo7&&bo8&&bo9||bo1&&bo4&&bo7||bo2&&bo5&&bo8||bo3&&bo6&&bo9||bo1&&bo5&&bo9||bo3&&bo5&&bo7){
+			document.getElementById('a').textContent='O WON !';
+			bf1 = 1;
+			bf2 = 1;
+			bf3 = 1;
+			bf4 = 1;
+			bf5 = 1;
+			bf6 = 1;
+			bf7 = 1;
+			bf8 = 1;
+			bf9 = 1;
+		}
+		}
+	</script>
+</body>
+</html>
